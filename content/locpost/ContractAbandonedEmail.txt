@@ -1,0 +1,7 @@
+Agent,
+You have abandoned your current contract, and as such are no longer eligible to complete it.
+You are now free to accept further contracts from the contact database.
+Your Current Ranking is {0} of {1}
+
+Thankyou,
+{2}

@@ -1,0 +1,9 @@
+1: Get admin access to a computer that you suspect has an eOS device sync'd to it
+2: Run eosdevicescanner.exe
+to scan for paired devices and automatically open connection ports
+3: connect to the revealed device
+4: login with
+user: "admin"
+password: "alpine"
+
+The password is the same for all eOS devices!

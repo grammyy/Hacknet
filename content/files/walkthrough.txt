@@ -1,0 +1,45 @@
+ GGG  RRRR   OOO    CCC  EEEE RRRR   22   11   11  
+G     R   R O   O  C     E    R   R 2  2 111  111  
+G  GG RRRR  O   O C      EEE  RRRR    2   11   11  
+G   G R  R  O   O  C     E    R R    2    11   11  
+ GGG  R  RR  OOO    CCC  EEEE R  RR 2222 11l1 11l1 
+                                                 
+Grocery Simulator 2010 FULL WALKTHROUGH
+COPYRIGHT 2011 GROCER211
+YOUR bRO in GROCERY-BASED INFOZ
+email grocer211@grocermail.groc!
+
+========================================
+==========CONTENTS=====================
+
+INTRO
+
+MISSION 1
+
+MISSION 2
+
+MISSION 3
+
+MISSION 4
+
+FINAL BOSS
+
+HAX + CHEATZ
+
+FINAL NOTES
+========================================
+
+INTRO
+
+from WIKI:
+"Grocery Simulator 2010 is a simulation game in which the player takes on the role of John Citizen, a grocer who must serve customers, maintain shelves and occasionally clean floors. It was published in October 2011 and received reviews ranging from"
+
+Sup bros, today im gonna be walking you thru the newest sensation in the world of grocery-based simulations, grocery simulator 2010.
+
+in this game, your John Citizen: a grocer, who's life gets flipped turned upside down (lol!) and has to sell all sorts of crazy shit to make some sweeeet $$$$.
+
+So first things 1st: the HUD. The HUD is wwhere you can see what ailes need refilling, where theirs a cleanup needed & how many customers you have. If u get stuck, you can turn on grocervision, witch will point yuo to the most importent job you gotta do. To walk around, you use e (forward) s (left), d (back), and f(strafe left), and z to backflip and use item (basically use this do do whatever job ur closest to, like mopping or stocking). TIP: It may not look like ur character is walking, but if you look closely you can see there moving its just that there feet dont move.
+
+========================================
+
+MISSION 1

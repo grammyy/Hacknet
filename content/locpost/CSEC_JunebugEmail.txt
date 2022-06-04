@@ -1,0 +1,7 @@
+Agent,
+
+Administrators have flagged your account with permissions to accept a critical contract.
+This is listed as {0} on the listings page.
+Be aware the accepting this contract may be either time consuming, or require confidentiality and a separation from other projects for a time and should be undertaken only with the expectation that other contracts, and possibly {0} services may be unavailable for it's duration.
+Thankyou,
+{0}

@@ -1,0 +1,8 @@
+Congratulations,
+The client of your recent contract has reported a success, and is pleased with your work.
+You are now free to accept further contracts from the contact database.
+
+Your Current Ranking is {0} of {1}.
+
+Thankyou,
+{2}

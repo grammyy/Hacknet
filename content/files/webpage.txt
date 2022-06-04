@@ -1,0 +1,10 @@
+<htlml> <body
+>
+<font size="7" font face="comic sans">
+Matt's Home Page<title>
+<title> 
+<marquee>WELOCME TO MY PGAGE</marquee>
+<marquee>Welcome!<blink> to my page></blink><img src="/images/dancingbaby.gif"><blink>You should probobaboally make this your homepage!!! </blink>
+<div><Div>D<>
+<position: absobloute>
+</webpage>

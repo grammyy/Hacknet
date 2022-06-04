@@ -1,0 +1,51 @@
+Paris#France#85#91#96#54#421#
+London#United Kingdom#87#88#89#41#405#
+Boston#United States#85#89#83#44#399#
+Melbourne#Australia#100#94.5#84#28#398#
+Adelaide#Australia#100#94.5#84#28#398#
+Vienna#Austria#99#99.5#81#62#389#
+Sydney#Australia#94#97#81#25#384#
+Zurich#Switzerland#84#99#81#51#381#
+Berlin#Germany#81#95#57#71#376#
+Dublin#Ireland#92#91.5#70#43#376#
+Montreal#Canada#85#93#68#46#372#
+Barcelona#Spain#76#87#71#61#370#
+Singapore#Singapore#78#92#100#35#369#
+Munich#Germany#79#98.5#63#69#368#
+Lyon#France#88#87.5#43#81#367#
+Chicago#United States#62#85.5#72#44#357#
+Madrid#Spain#73#85.5#64#66#356#
+San Francisco#United States#67#91#72#43#353#
+New York#United States#63#83.5#73#35#352#
+Tokyo#Japan#43#84#83#46#351#
+Hong Kong#Hong Kong#74#50#92#42#351#
+Milan#Italy#63#86#89#54#350#
+Brisbane#Australia#94#88.5#63#30#349#
+Seoul#Korea, South#67#50#82#53#345#
+Buenos Aires#Argentina#54#50#93#75#339#
+Perth#Australia#95#93.5#53#28#337#
+Toronto#Canada#70#95.5#75#35#336#
+Stockholm#Sweden#66#94#79#34#335#
+Beijing#China#48#50#87#62#329#
+Adelaide#Australia#88#91#45#34#327#
+Washington DC#United States#60#85.5#55#45#325#
+Vancouver#Canada#78#98#54#37#322#
+Mexico City#Mexico#38#50#68#95#322#
+Helsinki#Finland#58#89.5#53#69#321#
+Taipei#Taiwan#49#50#59#78#320#
+Manchester#United Kingdom#82#50#66#64#317#
+Amsterdam#Netherlands#62#96.5#57#44#316#
+Moscow#Russia#57#50#78#52#314#
+Brussels#Belgium#71#93#40#60#308#
+Shanghai#China#43#50#70#68#306#
+Copenhagen#Denmark#64#97.5#56#31#306#
+Santiago#Chile#33#50#89#63#302#
+Philadelphia#United States#56#50#64#52#301#
+Kyoto#Japan#60#83#44#47#298#
+Kuala Lumpur#Malaysia#58#50#45#86#295#
+Sao Paulo#Brazil#27#50#79#58#292#
+Toulouse#France#86#50#26#81#286#
+Birmingham#United Kingdom#64#50#55#64#284#
+Cairo#Egypt#47#50#55#96#282#
+Bangkok#Thailand#27#50#63#68#279#
+Glasgow#United Kingdom#68#50#43#63#278#

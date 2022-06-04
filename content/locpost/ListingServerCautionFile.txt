@@ -1,0 +1,6 @@
+  ----- WARNING -----  
+
+config.sys in this folder is a critical system file.
+DO NOT DELETE OR RENAME IT
+Doing so will crash the board and bring the host program down
+Changes to the config should be made only during scheduled outages to avoid this issue
