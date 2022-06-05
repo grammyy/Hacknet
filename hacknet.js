@@ -2,7 +2,7 @@ GUI=document.getElementById("GUI");obj=[]//game setup
 window.onload=function(){ //cmd window execution here for visuals
     GUI.insertAdjacentHTML("afterbegin","<iframe src='content/Web/Login.html'style='height:55%;width:35%;align-self:center;margin:175px;margin-bottom:230px'></iframe>")
     if(Cookies.get("accounts")){
-        }}
+        document.getElementsByTagName("iframe")[0].contentWindow.document.body.children[3].style.display="flex"}}
 commands=[
     ["help [PAGE NUMBER]"],
     ["scp [filename] [OPTIONAL: destination]"],
