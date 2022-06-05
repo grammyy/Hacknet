@@ -37,6 +37,7 @@ progression={
     }
 render={ //load and deload scenes effectively
     frame:function(data){
+        GUI.style.visibility="hidden"
         if(!document.body.children["SUB"])
             document.body.insertAdjacentHTML("afterbegin","<iframe id='SUB' style='position:absolute' src="+data+"></iframe>")
         else
