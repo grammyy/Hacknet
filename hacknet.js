@@ -1,6 +1,6 @@
 GUI=document.body.children["GUI"]
 window.onload=function(){ //cmd window execution here for visuals
-    GUI.insertAdjacentHTML("afterbegin","<iframe src='content/web/Login.html'style='height:55%;width:35%;align-self:center;margin:180.4px;margin-bottom:242.5px'></iframe>")
+    GUI.insertAdjacentHTML("afterbegin","<iframe src='content/web/Login.html'style='height:55%;width: 450px;margin-top: 135px;margin-left: 180.4px'></iframe>")
     if(Cookies.get("accounts")){
         document.getElementsByTagName("iframe")[0].contentWindow.document.body.children[3].style.display="flex"}}
 commands=[
