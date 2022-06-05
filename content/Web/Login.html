@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body{display:flex;flex-direction: column;height:100vh;width:100vw;overflow:hidden;background:transparent;margin:0px;color:white;font-family:monospace;user-select:none}
-        #logo{line-height:58px;margin:0;font-size:81px;height:64px;font-family:Kremlin;letter-spacing:-6px;margin-top:1px}
+        #logo{line-height:58px;margin:0;font-size:80px;height:63px;font-family:Kremlin;letter-spacing:-6px;margin-top:1px}
         .button{height:47.984px;background-color: hsla(0, 0%, 38%, 0.4);margin-bottom:15.5px;display:flex;align-items:center;border:1px #8f8f8f solid;letter-spacing:1px}
         .button:hover{background-color: hsla(0, 0%, 80%, 0.4)}
-        .marker{height:100%;width:10px;margin-right:7.5px;background-color: #9da9b4}
+        .marker{height:100%;width:11px;margin-right:7.5px;background-color: #9da9b4}
         .x2{height:25.266px !important;padding-left:0}
         #exit{background-color: #7d6569}
         @font-face {
@@ -24,6 +24,6 @@
     <div class="button" onclick=""><div class="marker"></div>Login</div>
     <div class="button" onclick="parent.window.render.frame('content/web/settings.html')"><div class="marker"></div>Settings</div>
     <div class="button" onclick=""><div class="marker"></div>Extensions</div>
-    <div class="button x2" style="margin-bottom:0" onclick=""><div class="marker" id="exit"></div>Exit</div>
+    <div class="button x2" style="margin-bottom:0" onclick="close()"><div class="marker" id="exit"></div>Exit</div>
 </body>
 </html>

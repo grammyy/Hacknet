@@ -4,8 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{overflow:hidden;background:transparent;margin:0px;color:white;font-family:monospace;user-select:none}
+        .button{background-color: hsla(0, 0%, 38%, 0.4);margin:9px;margin-bottom:4px;display:flex;align-items:center;border:1px #8f8f8f solid;margin-left:10px}
+        .button:hover{background-color: hsla(0, 0%, 80%, 0.4)}
+        .marker{height:100%;width:11.5px;margin-right:7.5px;background-color:#9e9e9e}
+        .section{margin-left:100px;margin-top:30px;white-space:nowrap}
+        .box{height:12px;width:12px;background-color:#393156d9}
+        .shell{margin-top:-4px;margin-bottom:8px;height:16px;width:16px;display:flex;justify-content:center;align-items:center;border:2px solid #75738de3}
+        .shell:hover{border:2px solid #fbff00}
+        h1{margin:0;letter-spacing:-1px;font-size:35px;font-weight:100}
+    </style>
 </head>
 <body>
-    
+    <div style="width:180px;height:27px" class="button" onclick="parent.window.render.deload()"><div class="marker"></div><- Back</div>
+    <div style="width:180px;height:18px;margin-top:0;letter-spacing:1px" class="button" onclick=""><div class="marker" style="background-color:#c4e2db"></div>Apply Changes</div>
+    <div style="display:flex">
+        <div class="section" style="height:518px;width:232px">
+            <h1>Fullscreen</h1>
+            <div class="shell"><div class="box" onclick="parent.window.API.toggle(document.body.children[2].children[0].children[1].children[0])"></div></div>
+            <h1>Bloom</h1>
+            <div class="shell"><div class="box" onclick="parent.window.API.toggle(document.body.children[2].children[0].children[3].children[0])"></div></div>
+            <h1>Scanlines</h1>
+            <div class="shell"><div class="box" onclick="parent.window.API.toggle(document.body.children[2].children[0].children[5].children[0])"></div></div>
+            <h1>Multisampling</h1>
+            <div class="shell"><div class="box" onclick="parent.window.API.toggle(document.body.children[2].children[0].children[7].children[0])"></div></div>
+            <h1>Audio Visualiser</h1>
+            <div class="shell"><div class="box" onclick="parent.window.API.toggle(document.body.children[2].children[0].children[9].children[0])"></div></div>
+            <h1>Sound Enabled</h1>
+            <div class="shell"><div class="box" onclick="parent.window.API.toggle(document.body.children[2].children[0].children[11].children[0])"></div></div>
+            <h1>Music Volume</h1>
+            <h1>Text Size</h1>
+        </div>
+        <div class="section" style="height:518px;width:232px">
+            <h1>Resolutions</h1>
+        </div>
+        <div class="section" style="height:518px;width:232px">
+            <h1>Language</h1>
+        </div>
+    </div>
 </body>
 </html>

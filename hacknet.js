@@ -31,6 +31,10 @@ commands=[
     ["append [FILENAME] [DATA]"],
     ["shell"],
     ["save!(SJN!*SNL8vAewew57WewJdwl89(*4;;;&!)@&(ak'^&#@J3KH@!*"]]
+API={ //scripts for common buttons and such
+    toggle:function(data){
+        a=data.classList.toggle("1")
+        if(a) data.style.backgroundColor="#00c4ff"; else data.style.backgroundColor="#393156d9"}}
 scripts={ //hacker boi scripts here
     }
 progression={
@@ -42,7 +46,13 @@ render={ //load and deload scenes effectively
             document.body.insertAdjacentHTML("afterbegin","<iframe id='SUB' style='position:absolute' src="+data+"></iframe>")
         else
             document.body.children["SUB"].src=data
-            document.body.children["SUB"].style.visibility="visible"}}
+            document.body.children["SUB"].style.visibility="visible"},
+    purge:function(){
+        document.body.children["SUB"].remove()
+        GUI.style.visibility="visible"},
+    deload:function(){
+        document.body.children["SUB"].style.visibility="hidden"
+        GUI.style.visibility="visible"}}
 function AddEvent(object, id, func) {
     if(object.attachEvent) object.attachEvent("on" + id, function() {func.call(object)})
     else if(object.addEventListener) object.addEventListener(id, func, false)}
