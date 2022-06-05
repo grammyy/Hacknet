@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body{display:flex;flex-direction: column;height:100vh;width:100vw;overflow:hidden;background:transparent;margin:0px;color:white;font-family:monospace;user-select:none}
-        #logo{line-height:60px;margin:0;font-size:85px;height: 68px;font-family:Kremlin;letter-spacing:-5px}
-        .button{height:12%;background-color: hsla(0, 0%, 38%, 0.4);margin-bottom:15px;display:flex;align-items:center;border:1px #8f8f8f solid;letter-spacing:1px}
+        #logo{line-height:58px;margin:0;font-size:85px;height:65px;font-family:Kremlin;letter-spacing:-5px}
+        .button{height:12.15%;background-color: hsla(0, 0%, 38%, 0.4);margin-bottom:17px;display:flex;align-items:center;border:1px #8f8f8f solid;letter-spacing:1px}
         .button:hover{background-color: hsla(0, 0%, 80%, 0.4)}
         .marker{height:100%;width:10px;margin-right:7.5px;background-color: #9da9b4}
-        .x2{height:6.5% !important;padding-left:0}
+        .x2{height:6.4% !important;padding-left:0}
         #exit{background-color: #7d6569}
         @font-face {
             font-family: Kremlin;
@@ -19,11 +19,11 @@
 </head>
 <body>
     <p id="logo">HACKNET</p><p id="version" style="margin:45px;margin-right:35px;right:0;position:absolute;font-size:large;color:hsl(0deg 0% 58% / 58%);letter-spacing:1px">OS v5.069</p>
-    <div class="button"><div class="marker"></div>New Season</div>
-    <div class="button x2" style="margin-bottom:10px;display:none"><div class="marker"></div>Continue</div>
-    <div class="button"><div class="marker"></div>Login</div>
-    <div class="button"><div class="marker"></div>Settings</div>
-    <div class="button"><div class="marker"></div>Extensions</div>
-    <div class="button x2" style="margin-bottom:0"><div class="marker" id="exit"></div>Exit</div>
+    <div class="button" onclick=""><div class="marker"></div>New Season</div>
+    <div class="button x2" style="margin-bottom:12px;display:none" onclick=""><div class="marker"></div>Continue</div>
+    <div class="button" onclick=""><div class="marker"></div>Login</div>
+    <div class="button" onclick="parent.window.render.frame('content/web/settings.html')"><div class="marker"></div>Settings</div>
+    <div class="button" onclick=""><div class="marker"></div>Extensions</div>
+    <div class="button x2" style="margin-bottom:0" onclick=""><div class="marker" id="exit"></div>Exit</div>
 </body>
 </html>

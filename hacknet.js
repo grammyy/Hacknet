@@ -1,6 +1,6 @@
-GUI=document.getElementById("GUI");obj=[]//game setup
+GUI=document.body.children["GUI"]
 window.onload=function(){ //cmd window execution here for visuals
-    GUI.insertAdjacentHTML("afterbegin","<iframe src='content/Web/Login.html'style='height:55%;width:35%;align-self:center;margin:175px;margin-bottom:230px'></iframe>")
+    GUI.insertAdjacentHTML("afterbegin","<iframe src='content/web/Login.html'style='height:55%;width:35%;align-self:center;margin:175px;margin-bottom:230px'></iframe>")
     if(Cookies.get("accounts")){
         document.getElementsByTagName("iframe")[0].contentWindow.document.body.children[3].style.display="flex"}}
 commands=[
@@ -36,7 +36,12 @@ scripts={ //hacker boi scripts here
 progression={
     }
 render={ //load and deload scenes effectively
-    }
+    frame:function(data){
+        if(!document.body.children["SUB"])
+            document.body.insertAdjacentHTML("afterbegin","<iframe id='SUB' style='position:absolute' src="+data+"></iframe>")
+        else
+            document.body.children["SUB"].src=data
+            document.body.children["SUB"].style.visibility="visible"}}
 function AddEvent(object, id, func) {
     if(object.attachEvent) object.attachEvent("on" + id, function() {func.call(object)})
     else if(object.addEventListener) object.addEventListener(id, func, false)}
