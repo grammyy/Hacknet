@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body{overflow-x:hidden;background:transparent;margin:0px;color:white;font-family:monospace;user-select:none}
+        body{background:transparent;margin:0px;color:white;font-family:monospace;user-select:none}
         body::-webkit-scrollbar{display: none}
-        .button{background-color:hsla(0, 0%, 38%, 0.4);margin:9px;margin-bottom:4.1px;display:flex;align-items:center;border:1px #8f8f8f85 solid;margin-left:10px}
+        .button{width:218px;background-color:hsla(0, 0%, 38%, 0.4);margin:9px;margin-bottom:4.1px;display:flex;align-items:center;border:1px #8f8f8f85 solid;margin-left:10px}
         .button:hover{background-color: hsla(0, 0%, 80%, 0.4)}
         .marker{height:100%;width:11.5px;margin-right:7.5px;background-color:#9e9e9e}
-        .section{margin-left:7.81%;margin-top:2.49%;white-space:nowrap;overflow:hidden;height:518px}
+        .section{margin-top:2.49%;white-space:nowrap;overflow:hidden;height:645px}
         .scroll{overflow:auto}
         .scroll::-webkit-scrollbar{width:2px}
         .scroll::-webkit-scrollbar-track{background:transparent}
@@ -24,10 +24,10 @@
     </style>
 </head>
 <body>
-    <div style="width:180px;height: 28.4px" class="button" onclick="parent.window.render.deload()"><div class="marker"></div><- Back</div>
-    <div style="width:180px;height:18px;margin-top:0;letter-spacing:1px" class="button" onclick=""><div class="marker" style="background-color:#c4e2db"></div>Apply Changes</div>
-    <div style="display:flex;flex-wrap:wrap">
-        <div class="section" style="width:232px;height:559px">
+    <div style="height: 28.4px" class="button" onclick="parent.window.render.deload()"><div class="marker"></div><- Back</div>
+    <div style="height:18px;margin-top:0;letter-spacing:1px" class="button" onclick=""><div class="marker" style="background-color:#c4e2db"></div>Apply Changes</div>
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-start;overflow:auto">
+        <div class="section" style="width:232px;height:559px;margin-left:100px">
             <h1>Fullscreen</h1>
             <div class="shell"><div class="box" onclick="parent.window.API.toggle(document.body.children[2].children[0].children[1].children[0])"></div></div>
             <h1>Bloom</h1>
@@ -43,27 +43,27 @@
             <h1>Music Volume</h1>
             <input type="range" min="1" max="1000" value="500" id="volume">
             <h1>Text Size</h1>
-            <div style="height:100px;width:190px;margin-top:0.4px;display:flex;flex-wrap:wrap;align-content:flex-start"></div>
+            <div style="align-content: flex-start;height:100px;width:190px;margin-top:0.4px;display:flex;flex-wrap:wrap;align-content:flex-start"></div>
         </div>
-        <div class="section" style="width:232px;margin-left:5.2%">
+        <div class="section" style="width:232px;height:483px;margin-left:66.5px">
             <h1>Resolutions</h1>
-            <div style="height:85.5%;width:190px;margin-top:4px;display:flex;flex-wrap:wrap;align-items:flex-start" class="scroll"></div>
+            <div style="align-content: flex-start;height:448px;width:190px;margin-top:4px;display:flex;flex-wrap:wrap;align-items:flex-start" class="scroll"></div>
         </div>
-        <div class="section" style="width:232px;margin-left:-1%">
+        <div class="section" style="width:232px;margin-left:-13.3px">
             <h1>Language</h1>
-            <div style="height:54px;width:190px;margin-top:-2px;display:flex;flex-wrap:wrap;align-items:flex-start"></div>
+            <div style="align-content: flex-start;height:54px;width:190px;margin-top:-2px;display:flex;flex-wrap:wrap;align-items:flex-start"></div>
         </div>
     </div>
     <script>
         setInterval(function(){
-            if(window.innerWidth<=533) document.body.children[2].children[1].style.marginLeft="7.81%"; else document.body.children[2].children[1].style.marginLeft="5.2%"
-            if(window.innerWidth<=790) document.body.children[2].children[2].style.marginLeft="7.81%"; else document.body.children[2].children[2].style.marginLeft="-1%"},300)
+            if(window.innerWidth<=549){document.body.children[2].children[1].style.marginLeft="7.81%";document.body.children[2].children[0].style.marginLeft="7.81%"}else{document.body.children[2].children[1].style.marginLeft="66.5px";document.body.children[2].children[0].style.marginLeft="100px"}
+            if(window.innerWidth<=849){if(window.innerWidth>549)document.body.children[2].children[2].style.marginLeft="100px";else document.body.children[2].children[2].style.marginLeft="7.81%";document.body.style.overflow="auto"}else{document.body.children[2].children[2].style.marginLeft="-13.3px";document.body.style.overflow="hidden"}},100)
         s=["default","medium","large"]
         for(var i=0;i<s.length;i++){
             document.body.children[2].children[0].children[15].insertAdjacentHTML("beforeend","<p style='width:100%;padding-top:2px;padding-bottom:2px;margin:0;letter-spacing:1px;background-color:#070711'>"+s[i]+"</p>")}
         t=["1152x768","1152x864","1280x1024","1280x720","1280x760","1280x800","1280x854","1280x960","1365x790","1366x768","1400x1050","1408x792","1440x900","1440x960","1600x1200","1600x900","1680x1050","1792x1008","1920x1080","1920x1200","2560x1080","2560x1440","2560x1600","2560x1920","2560x1440","2880x1920","3440x1440","3840x2160","4060x2160"]
         for(var i=0;i<t.length;i++){
-            document.body.children[2].children[1].children[1].insertAdjacentHTML("beforeend","<p style='width:100%;padding-top:2px;padding-bottom:2px;margin:0;letter-spacing:1px;background-color:#070711'>"+t[i]+"</p>")}
+            document.body.children[2].children[1].children[1].insertAdjacentHTML("beforeend","<p style='width:100%;padding-top:0.75px;padding-bottom:0.75px;margin:0;letter-spacing:1px;background-color:#070711'>"+t[i]+"</p>")}
         l=["English","German","French","Russian","Spanish","Korean","Japanese","Chinese","Turkish","Dutch"]
         for(var i=0;i<l.length;i++){
             document.body.children[2].children[2].children[1].insertAdjacentHTML("beforeend","<p style='width:100%;padding-top:2px;padding-bottom:2px;margin:0;letter-spacing:1px;background-color:#070711'>"+l[i]+"</p>")}
