@@ -45,9 +45,11 @@ render={ //load and deload scenes effectively
         if(!document.body.children["SUB"])
             document.body.insertAdjacentHTML("afterbegin","<iframe id='SUB' style='position:absolute' src="+data+"></iframe>")
         else
+            document.body.children["SUB"].style.pointerEvents="all"
             document.body.children["SUB"].src=data},
     deload:function(){
-        document.body.children["SUB"].remove()
+        document.body.children["SUB"].style.pointerEvents="none"
+        document.body.children["SUB"].src=""
         GUI.style.visibility="visible"}}
 function AddEvent(object, id, func) {
     if(object.attachEvent) object.attachEvent("on" + id, function() {func.call(object)})
