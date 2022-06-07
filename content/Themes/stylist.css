@@ -1,4 +1,10 @@
 body{margin:0;overflow-x:hidden;background-color:black;user-select: none}
 body::-webkit-scrollbar{display: none}
-#GUI{height:100vh;width:100vw;display:flex;justify-content:space-around}
+#GUI{height:100vh;width:100vw;display:flex}
 iframe{height:100%;width:100%;border:none}
+.titlebar{width:100%;display:none}
+#taskbar{width:100%;display:none}
+#ram{height:100%;display:none}
+#files{display:none}
+#map{display:none}
+#cmd{height:100%;display:none}

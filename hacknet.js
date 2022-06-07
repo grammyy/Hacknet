@@ -1,5 +1,6 @@
 GUI=document.body.children["GUI"]
 window.onload=function(){ //cmd window execution here for visuals
+    console.group("Information");console.warn("This game was orginially created by Matt Trobbiani, @Orann, please buy the orginial game for the best experience: (https://store.steampowered.com/app/365450/Hacknet/)"),console.warn("This project was created by Bartender (https://steamcommunity.com/id/WineBartender/), a complete recreation of hacknet in javascript for support of all broswers and devices; allowing people to play on their phones anywhere."),console.warn("This game is offine page accessible! You can simply download and play anywhere, even without wifi! (https://github.com/BartenderWinery/Hacknet)"); console.groupEnd()
     if(!Cookies.get()){
         Cookies.set("settings","0;0;0;0;0;0;500;default;1920x1080;English")}
     GUI.insertAdjacentHTML("afterbegin","<iframe src='content/web/Login.html'style='height: 55%;width: 448px;margin-top: 10.8%;;margin-left: 10%;margin-right: 10%'></iframe>")
@@ -48,24 +49,33 @@ render={ //load and deload scenes effectively
             document.body.insertAdjacentHTML("afterbegin","<iframe id='SUB' loading=lazy style='position:absolute' src="+data+"></iframe>")
         else
             document.body.children["SUB"].style.pointerEvents="all"
-            document.body.children["SUB"].src=data},
+            document.body.children["SUB"].src=data
+            document.body.children["SUB"].display="block"},
     deload:function(){
         document.body.children["SUB"].style.pointerEvents="none"
         document.body.children["SUB"].src=""
-        GUI.style.visibility="visible"},
-    login:function(){
-        GUI.children[0].style.visibility="hidden"
+        document.body.children["SUB"].display="none"
+        GUI.style.visibility="visible"}}
+profiles={
+    load:function(account){
         document.body.style=document.body.style+""
-        GUI.children[1]=GUI.children[1]+";visibility:visible"
-        GUI.children[2]=GUI.children[2]+";visibility:visible"
-        GUI.children[3]=GUI.children[3]+";visibility:visible"
-        GUI.children[4]=GUI.children[4]+";visibility:visible"},
-    exit:function(){
-        GUI.children[0].style.visibility="visible"
-        GUI.children[1]="visibility:hidden"
-        GUI.children[2]="visibility:hidden"
-        GUI.children[3]="visibility:hidden"
-        GUI.children[4]="visibility:hidden"}}
+        GUI.children[0].style.display="none"
+        GUI.children[1].style.display="block"
+        GUI.children[2].style.display="block"
+        GUI.children[3].style.display="block"
+        GUI.children[4].style.display="block"
+        GUI.children[5].style.display="block"
+        if(!Cookies.get(account))
+            Cookies.set(account,"")
+            Cookies.set(account+";missions","")
+            Cookies.set(account+";logs","")},
+    deload:function(){
+        GUI.children[0].style.display="flex"
+        GUI.children[1].style.display="none"
+        GUI.children[2].style.display="none"
+        GUI.children[3].style.display="none"
+        GUI.children[4].style.display="none"
+        GUI.children[5].style.display="none"}}
 function AddEvent(object, id, func) {
     if(object.attachEvent) object.attachEvent("on" + id, function() {func.call(object)})
     else if(object.addEventListener) object.addEventListener(id, func, false)}
