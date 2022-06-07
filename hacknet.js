@@ -49,12 +49,10 @@ render={ //load and deload scenes effectively
             document.body.insertAdjacentHTML("afterbegin","<iframe id='SUB' loading=lazy style='position:absolute' src="+data+"></iframe>")
         else
             document.body.children["SUB"].style.pointerEvents="all"
-            document.body.children["SUB"].src=data
-            document.body.children["SUB"].display="block"},
+            document.body.children["SUB"].src=data},
     deload:function(){
         document.body.children["SUB"].style.pointerEvents="none"
         document.body.children["SUB"].src=""
-        document.body.children["SUB"].display="none"
         GUI.style.visibility="visible"}}
 profiles={
     load:function(account){
