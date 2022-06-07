@@ -10,22 +10,30 @@
         .button{height:47.984px;background-color: hsla(0, 0%, 38%, 0.4);margin-bottom:15.5px;display:flex;align-items:center;border:1px #8f8f8f85 solid;letter-spacing:1px}
         .button:hover{background-color: hsla(0, 0%, 80%, 0.4)}
         .marker{height:100%;width:11px;margin-right:7.5px;background-color: #9da9b4}
-        .x2{height:25.266px !important;padding-left:0}
-        #exit{background-color: #7d6569}
+        .x2{height:20.25px !important;padding-left:0}
+        #exit{background-color: #99666e}
+        p{margin:0;letter-spacing:1px;font-size:15.5px}
+        input{ background-color: transparent; border: none; color: rgb(204,204,204); padding: 0px; font-family: monospace; width: -webkit-fill-available; font-size: inherit; height:18.5px;margin-left:5px; position: absolute}
+        input:focus{ outline: none}
         @font-face {
             font-family: Kremlin;
             src: url(kremlin.ttf)}
     </style>
 </head>
 <body>
-    <div>
-        <p></p>
+    <div style="height:100%;margin-left:322px;width:max-content;display:flex;flex-direction:column;justify-content:center">
+        <p style="margin-top:6px"></p>
+        <p>USERNAME :<input></input></p>
+        <div style="height:1px;border-top: 1px solid #ffffff7d;width:100%;margin-top:10px"></div>
+        <div class="button x2" style="margin-bottom:0;margin-top:7.5px;width:63%" onclick="parent.window.render.deload()"><div class="marker" id="exit"></div>CANCEL</div>
     </div>
     <script>
-        if(window.location.href.split("#")[1]=="login")
-            document.body.children[0].children[0].innerText="-- Login --"
-        else
-            document.body.children[0].children[0].innerText="-- New Hacknet User Registration --"
+        if(window.location.href.split("#")[1]=="login"){
+            document.body.children[0].children[2].style.width="160%"
+            document.body.children[0].children[3].style.width="108%"
+            document.body.children[0].children[0].innerText="-- Login --"}
+        else{
+            document.body.children[0].children[0].innerText="-- New Hacknet User Registration --"}
     </script>
 </body>
 </html>
