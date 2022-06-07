@@ -43,14 +43,27 @@ render={ //load and deload scenes effectively
     frame:function(data){
         GUI.style.visibility="hidden"
         if(!document.body.children["SUB"])
-            document.body.insertAdjacentHTML("afterbegin","<iframe id='SUB' style='position:absolute' src="+data+"></iframe>")
+            document.body.insertAdjacentHTML("afterbegin","<iframe id='SUB' loading=lazy style='position:absolute' src="+data+"></iframe>")
         else
             document.body.children["SUB"].style.pointerEvents="all"
             document.body.children["SUB"].src=data},
     deload:function(){
         document.body.children["SUB"].style.pointerEvents="none"
         document.body.children["SUB"].src=""
-        GUI.style.visibility="visible"}}
+        GUI.style.visibility="visible"},
+    login:function(){
+        GUI.children[0].style.visibility="hidden"
+        document.body.style=document.body.style+""
+        GUI.children[1]=GUI.children[1]+";visibility:visible"
+        GUI.children[2]=GUI.children[2]+";visibility:visible"
+        GUI.children[3]=GUI.children[3]+";visibility:visible"
+        GUI.children[4]=GUI.children[4]+";visibility:visible"},
+    exit:function(){
+        GUI.children[0].style.visibility="visible"
+        GUI.children[1]="visibility:hidden"
+        GUI.children[2]="visibility:hidden"
+        GUI.children[3]="visibility:hidden"
+        GUI.children[4]="visibility:hidden"}}
 function AddEvent(object, id, func) {
     if(object.attachEvent) object.attachEvent("on" + id, function() {func.call(object)})
     else if(object.addEventListener) object.addEventListener(id, func, false)}
