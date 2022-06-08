@@ -56,7 +56,6 @@
         <div style="height:28px;margin-top:0;letter-spacing:1px;position:absolute;top:744px" class="button" onclick=""><div class="marker" style="background-color:#c4e2db"></div>Apply Changes</div>
     </div>
     <script>
-        if(navigator.userAgent.toLowerCase().indexOf("android")>-1){document.body.children[0].remove()}else{document.body.children[0].innerText=navigator.userAgentData.mobile}
         setInterval(function(){
             if(window.innerWidth<=549){document.body.children[2].children[1].style.marginLeft="7.81%";document.body.children[2].children[0].style.marginLeft="7.81%"}else{document.body.children[2].children[1].style.marginLeft="66.5px";document.body.children[2].children[0].style.marginLeft="100px"}
             if(window.innerWidth<=849){if(window.innerWidth>549)document.body.children[2].children[2].style.marginLeft="100px";else document.body.children[2].children[2].style.marginLeft="7.81%";document.body.style.overflow="auto";document.body.children[2].children[3].style.visibility="hidden"}else{document.body.children[2].children[2].style.marginLeft="-13.3px";document.body.style.overflow="hidden";document.body.children[2].children[3].style.visibility="visible"}},100)
