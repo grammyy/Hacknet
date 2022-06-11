@@ -1,10 +1,11 @@
 body{margin:0;overflow-x:hidden;background-color:black;user-select: none}
 body::-webkit-scrollbar{display: none}
-#GUI{height:100vh;width:100vw;display:flex}
+#GUI{height:100vh;width:100vw;display:inline-flex;flex-wrap:wrap}
 iframe{height:100%;width:100%;border:none}
-.titlebar{width:100%;display:none}
-#taskbar{width:100%;display:none}
-#ram{height:100%;display:none}
-#files{display:none}
-#map{display:none}
+.titlebar{width:100%;display:none;background-color:#172e40}
+.terminal{margin:1px}
+#taskbar{width:100%;height:19px;display:none;background-color:#a75427}
+#ram{height:100%;width:19.8%;display:none}
+#files{height:69.45%;width:44.2%;display:none}
+#map{width:44.2%;display:none}
 #cmd{height:100%;display:none}
