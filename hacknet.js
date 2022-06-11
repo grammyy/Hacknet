@@ -1,5 +1,6 @@
 GUI=document.body.children["GUI"]
 window.onload=function(){ //cmd window execution here for visuals
+    setInterval(function(){GUI.children[1].children[3].innerText=fps},1)
     console.group("Information");console.warn("This game was orginially created by Matt Trobbiani, @Orann, please buy the orginial game for the best experience: (https://store.steampowered.com/app/365450/Hacknet/)"),console.warn("This project was created by Bartender (https://steamcommunity.com/id/WineBartender/), a complete recreation of hacknet in javascript for support of all broswers and devices; allowing people to play on their phones anywhere."),console.warn("This game is offine page accessible! You can simply download and play anywhere, even without wifi! (https://github.com/BartenderWinery/Hacknet)"); console.groupEnd()
     if(!Cookies.get()){
         Cookies.set("settings","0;0;0;0;0;0;500;default;1920x1080;English")}
@@ -58,7 +59,7 @@ profiles={
     load:function(account){
         document.body.style=document.body.style+""
         GUI.children[0].style.display="none"
-        GUI.children[1].style.display="block"
+        GUI.children[1].style.display="flex"
         GUI.children[2].style.display="block"
         GUI.children[3].style.display="block"
         GUI.children[4].style.display="block"
@@ -80,6 +81,16 @@ function AddEvent(object, id, func) {
 AddEvent(window,'keydown',function(e){
     console.log(e.keyCode)//temp code for debugging keycodes
     switch(e.keyCode){}})
+const times = [];let fps;
+function refreshLoop(){
+    window.requestAnimationFrame(()=>{
+        const now = performance.now();
+        while(times.length>0&&times[0]<=now-1000){
+            times.shift()}
+        times.push(now)
+        fps = times.length
+        refreshLoop()})}
+refreshLoop();
 ! function(rcon) {
     var cook;
     if ("function" == typeof define && define.amd && (define(rcon), cook = !0), "object" == typeof exports && (module.exports = rcon(), cook = !0), !cook) {
