@@ -4,9 +4,7 @@ window.onload=function(){ //cmd window execution here for visuals
     console.group("Information");console.warn("This game was orginially created by Matt Trobbiani, @Orann, please buy the orginial game for the best experience: (https://store.steampowered.com/app/365450/Hacknet/)"),console.warn("This project was created by Bartender (https://steamcommunity.com/id/WineBartender/), a complete recreation of hacknet in javascript for support of all broswers and devices; allowing people to play on their phones anywhere."),console.warn("This game is offine page accessible! You can simply download and play anywhere, even without wifi! (https://github.com/BartenderWinery/Hacknet)"); console.groupEnd()
     if(!Cookies.get()){
         Cookies.set("settings","0;0;0;0;0;0;500;default;1920x1080;English")}
-    GUI.insertAdjacentHTML("afterbegin","<iframe src='content/web/Login.html'style='height: 55%;width: 448px;margin-top: 10.8%;;margin-left: 10%;margin-right: 10%'></iframe>")
-    if(Cookies.get("accounts")){
-        document.getElementsByTagName("iframe")[0].contentWindow.document.body.children[3].style.display="flex"}}
+    GUI.insertAdjacentHTML("afterbegin","<iframe src='content/web/Login.html'style='height: 55%;width: 448px;margin-top: 10.8%;;margin-left: 10%;margin-right: 10%'></iframe>")}
 commands=[
     ["help [PAGE NUMBER]"],
     ["scp [filename] [OPTIONAL: destination]"],
@@ -38,7 +36,9 @@ commands=[
 API={ //scripts for common buttons and such
     toggle:function(data){
         a=data.classList.toggle("1")
-        if(a) data.style.backgroundColor="#00c4ff"; else data.style.backgroundColor="#393156d9"}}
+        if(a) data.style.backgroundColor="#00c4ff"; else data.style.backgroundColor="#393156d9"},
+    write:function(data){
+        GUI.children[5].children[1].insertAdjacentHTML("beforeEnd","<p>"+data+"</p>")}}
 scripts={ //hacker boi scripts here
     }
 progression={
@@ -64,10 +64,12 @@ profiles={
         GUI.children[3].style.display="block"
         GUI.children[4].style.display="block"
         GUI.children[5].style.display="block"
-        if(!Cookies.get(account))
-            Cookies.set(account,"")
-            Cookies.set(account+";missions","")
-            Cookies.set(account+";logs","")},
+        if(!Cookies.get(account)&&!String(Cookies.get("accounts")).includes(account))
+        Cookies.set(account,"")
+        Cookies.set(account+";missions","")
+        Cookies.set(account+";logs","")
+        if(Cookies.get("accounts")&&!Cookies.get(account)) Cookies.set("accounts",Cookies.get("accounts")+";"+account)
+        else Cookies.set("accounts",account)},
     deload:function(){
         GUI.children[0].style.display="flex"
         GUI.children[1].style.display="none"
