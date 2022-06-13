@@ -64,10 +64,10 @@ profiles={
         GUI.children[3].style.display="block"
         GUI.children[4].style.display="block"
         GUI.children[5].style.display="block"
-        if(!Cookies.get(account)&&!String(Cookies.get("accounts")).includes(account))
-        Cookies.set(account,"")
-        Cookies.set(account+";missions","")
-        Cookies.set(account+";logs","")
+        if(!Cookies.get(account)&&!String(Cookies.get("accounts")).includes(account)){
+            Cookies.set(account,"")
+            Cookies.set(account+";missions","")
+            Cookies.set(account+";logs","")}
         if(Cookies.get("accounts")&&!Cookies.get(account)) Cookies.set("accounts",Cookies.get("accounts")+";"+account)
         else Cookies.set("accounts",account)},
     deload:function(){
@@ -99,7 +99,8 @@ refreshLoop();
        var tray = window.Cookies,
           oven = window.Cookies = rcon();
        oven.noConflict = function() {
-          return window.Cookies = tray, oven}}}(function() {
+          return window.Cookies = tray, oven}}}
+(function() {
     function rcon() {
         for (var cook = 0, cook = {}; rcon < arguments.length; rcon++) {
            var tray = arguments[rcon];
