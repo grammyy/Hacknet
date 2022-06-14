@@ -64,12 +64,18 @@ profiles={
         GUI.children[3].style.display="block"
         GUI.children[4].style.display="block"
         GUI.children[5].style.display="block"
-        if(!Cookies.get(account)&&!String(Cookies.get("accounts")).includes(account)){
-            Cookies.set(account,"")
-            Cookies.set(account+";missions","")
-            Cookies.set(account+";logs","")}
-        if(Cookies.get("accounts")&&!Cookies.get(account)) Cookies.set("accounts",Cookies.get("accounts")+";"+account)
-        else Cookies.set("accounts",account)},
+        if(String(Cookies.get("accounts")).includes(account)){
+            d=String(Cookies.get("accounts")).split(";")
+            d=d.splice(d.indexOf(account),1)
+            d[d.length]=account
+            Cookies.set("accounts",d.join(";"))
+        }else{
+            if(Cookies.get("accounts")&&!Cookies.get(account)){Cookies.set("accounts",Cookies.get("accounts")+";"+account)}
+            if(!Cookies.get("accounts")){Cookies.set("accounts",account)}
+            if(!Cookies.get(account)){
+                Cookies.set(account,"1")
+                Cookies.set(account+";missions","")
+                Cookies.set(account+";logs","")}}},
     deload:function(){
         GUI.children[0].style.display="flex"
         GUI.children[1].style.display="none"
