@@ -3,7 +3,7 @@ window.onload=function(){ //cmd window execution here for visuals
     setInterval(function(){GUI.children[1].children[3].innerText=fps},1)
     console.group("Information");console.warn("This game was orginially created by Matt Trobbiani, @Orann, please buy the orginial game for the best experience: (https://store.steampowered.com/app/365450/Hacknet/)"),console.warn("This project was created by Bartender (https://steamcommunity.com/id/WineBartender/), a complete recreation of hacknet in javascript for support of all broswers and devices; allowing people to play on their phones anywhere."),console.warn("This game is offine page accessible! You can simply download and play anywhere, even without wifi! (https://github.com/BartenderWinery/Hacknet)"); console.groupEnd()
     if(!Cookies.get()){
-        Cookies.set("settings","0;0;0;0;0;0;500;default;1920x1080;English")}
+        Cookies.set("settings","")}
     GUI.insertAdjacentHTML("afterbegin","<iframe src='content/web/Login.html'style='height: 55%;width: 448px;margin-top: 10.8%;;margin-left: 10%;margin-right: 10%'></iframe>")}
 commands=[
     ["help [PAGE NUMBER]"],
@@ -34,6 +34,10 @@ commands=[
     ["shell"],
     ["save!(SJN!*SNL8vAewew57WewJdwl89(*4;;;&!)@&(ak'^&#@J3KH@!*"]]
 API={ //scripts for common buttons and such
+    encode:function(d,s,r){
+        a=JSON.parse(Cookies.get(d))
+        a[s]=r
+        Cookies.set(d,a)},
     toggle:function(data){
         a=data.classList.toggle("1")
         if(a) data.style.backgroundColor="#00c4ff"; else data.style.backgroundColor="#393156d9"},
@@ -54,7 +58,9 @@ render={ //load and deload scenes effectively
     deload:function(){
         document.body.children["SUB"].style.pointerEvents="none"
         document.body.children["SUB"].src=""
-        GUI.style.visibility="visible"}}
+        GUI.style.visibility="visible"},
+    node:function(n,i,x,y){
+        GUI.children[4].insertAdjacentHTML("beforeEnd","<div id="+i+" name="+n+"></div>")}}
 profiles={
     load:function(account){
         document.body.style=document.body.style+""
@@ -62,20 +68,16 @@ profiles={
         GUI.children[1].style.display="flex"
         GUI.children[2].style.display="block"
         GUI.children[3].style.display="block"
-        GUI.children[4].style.display="block"
+        GUI.children[4].style.display="flex"
         GUI.children[5].style.display="block"
-        if(String(Cookies.get("accounts")).includes(account)){
-            d=String(Cookies.get("accounts")).split(";")
-            d=d.splice(d.indexOf(account),1)
-            d[d.length]=account
-            Cookies.set("accounts",d.join(";"))
-        }else{
-            if(Cookies.get("accounts")&&!Cookies.get(account)){Cookies.set("accounts",Cookies.get("accounts")+";"+account)}
-            if(!Cookies.get("accounts")){Cookies.set("accounts",account)}
+        if(!String(Cookies.get("accounts")).includes(account)){
+            if(Cookies.get("accounts")&&!Cookies.get(account)){Cookies.set("accounts","{\"data\":\""+JSON.parse(Cookies.get("accounts"))["data"]+";"+account+"\",\"login\":\""+account+"\"}")}
+            if(!Cookies.get("accounts")){Cookies.set("accounts","{\"data\":\""+account+"\",\"login\":\""+account+"\"}")}
             if(!Cookies.get(account)){
-                Cookies.set(account,"1")
-                Cookies.set(account+";missions","")
-                Cookies.set(account+";logs","")}}},
+                Cookies.set(account,"{\"ip\":\""+(Math.floor(Math.random() * 255) + 1)+"."+(Math.floor(Math.random() * 255))+"."+(Math.floor(Math.random() * 255))+"."+(Math.floor(Math.random() * 255))+"\"}")
+                Cookies.set(account+";missions","{}")
+                Cookies.set(account+";logs","{}")}}
+        API.encode("accounts","login",account)},
     deload:function(){
         GUI.children[0].style.display="flex"
         GUI.children[1].style.display="none"
