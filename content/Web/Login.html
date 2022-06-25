@@ -26,7 +26,7 @@
     <div class="button" onclick=""><div class="marker"></div>Extensions</div>
     <div class="button x2" style="margin-bottom:0" onclick="close()"><div class="marker" id="exit"></div>Exit</div>
     <script>
-        if(parent.window.Cookies.get("accounts"))
+        if(parent.window.appdata.get("accounts"))
             document.body.children[3].style.display="flex"
     </script>
 </body>
