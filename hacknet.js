@@ -99,8 +99,8 @@ function refreshLoop(){
 refreshLoop();
 var appdata={
     set:function(n){
-        if(!document.cookie)document.cookie=n+"={"+d.replaceAll("]","").replaceAll("[","").split(",").join(":{},")+":{}}"
-        document.cookie=document.cookie+"; "+String(n)},
+        if(!document.cookie)document.cookie=n+"={}"
+        else document.cookie=document.cookie+"; "+String(n)},
     encode:function(n,d,v){
         if(!document.cookie.includes(n+"="))document.cookie=n+"={"+d.replaceAll("]","").replaceAll("[","").split(",").join(":{},")+":{}}"
         var t=decodeURIComponent(document.cookie).replaceAll("};","}||").split("||")
