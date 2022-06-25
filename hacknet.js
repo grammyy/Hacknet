@@ -34,10 +34,6 @@ commands=[
     ["shell"],
     ["save!(SJN!*SNL8vAewew57WewJdwl89(*4;;;&!)@&(ak'^&#@J3KH@!*"]]
 API={ //scripts for common buttons and such
-    encode:function(d,s,r){
-        a=JSON.parse(appdata.get(d))
-        a[s]=r
-        appdata.set(d,a)},
     toggle:function(data){
         a=data.classList.toggle("1")
         if(a) data.style.backgroundColor="#00c4ff"; else data.style.backgroundColor="#393156d9"},
@@ -71,13 +67,13 @@ profiles={
         GUI.children[4].style.display="flex"
         GUI.children[5].style.display="block"
         if(!String(appdata.get("accounts")).includes(account)){
-            if(appdata.get("accounts")&&!appdata.get(account)){appdata.set("accounts","{\"data\":\""+JSON.parse(appdata.get("accounts"))["data"]+";"+account+"\",\"login\":\""+account+"\"}")}
-            if(!appdata.get("accounts")){appdata.set("accounts","{\"data\":\""+account+"\",\"login\":\""+account+"\"}")}
+            if(appdata.get("accounts")&&!appdata.get(account)){appdata.encode("accounts","{\"data\":\""+appdata.get("accounts")["data"]+";"+account+"\",\"login\":\""+account+"\"}")}
+            if(!appdata.get("accounts")){appdata.encode("accounts","{\"data\":\""+account+"\",\"login\":\""+account+"\"}")}
             if(!appdata.get(account)){
                 appdata.set(account,"{\"ip\":\""+(Math.floor(Math.random() * 255) + 1)+"."+(Math.floor(Math.random() * 255))+"."+(Math.floor(Math.random() * 255))+"."+(Math.floor(Math.random() * 255))+"\"}")
                 appdata.set(account+";missions","{}")
                 appdata.set(account+";logs","{}")}}
-        API.encode("accounts","login",account)},
+        appdata.encode("accounts","login",account)},
     deload:function(){
         GUI.children[0].style.display="flex"
         GUI.children[1].style.display="none"
@@ -110,8 +106,8 @@ var appdata={
         var t=decodeURIComponent(document.cookie).replaceAll("};","}||").split("||")
         var p=t.findIndex((e)=>e.includes(n+"="))
         var m=t[p].replaceAll(n+"=","")
-        console.log(JSON.parse(m)[d[0]][d[1]])
-        return JSON.parse(m.replace(JSON.parse(m)[d[0]][d[1]],v))},
+        console.log(JSON.parse(m)[d])
+        return JSON.parse(m.replace(JSON.parse(m)[d],v))},
     get:function(n){
         var t=decodeURIComponent(document.cookie).replaceAll("};","}||").split("||")
         var p=t.findIndex((e)=>e.includes(n+"="))
