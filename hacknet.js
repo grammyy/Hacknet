@@ -85,12 +85,12 @@ profiles={
         GUI.children[3].style.display="none"
         GUI.children[4].style.display="none"
         GUI.children[5].style.display="none"}}
-function AddEvent(object, id, func) {
-    if(object.attachEvent) object.attachEvent("on" + id, function() {func.call(object)})
-    else if(object.addEventListener) object.addEventListener(id, func, false)}
-AddEvent(window,'keydown',function(e){
-    console.log(e.keyCode)//temp code for debugging keycodes
-    switch(e.keyCode){}})
+//function AddEvent(object, id, func) {
+//    if(object.attachEvent) object.attachEvent("on" + id, function() {func.call(object)})
+//    else if(object.addEventListener) object.addEventListener(id, func, false)}
+//AddEvent(window,'keydown',function(e){
+//    console.log(e.keyCode)//temp code for debugging keycodes
+//    switch(e.keyCode){}})
 const times = [];let fps;
 function refreshLoop(){
     window.requestAnimationFrame(()=>{
