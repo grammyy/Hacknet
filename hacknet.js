@@ -60,7 +60,7 @@ render={ //load and deload scenes effectively
         document.body.children["SUB"].src=""
         GUI.style.visibility="visible"},
     node:function(n,i,x,y){
-        GUI.children[4].insertAdjacentHTML("beforeEnd","<div id="+i+" name="+n+"></div>")}}
+        GUI.children[4].insertAdjacentHTML("beforeEnd","<div id='"+i+"' name='"+n+"' class='node' style='left:"+x+"'px;top:'"+y+"px'></div>")}}
 profiles={
     load:function(account){
         document.body.style=document.body.style+""
