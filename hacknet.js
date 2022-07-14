@@ -4,6 +4,7 @@ window.onload=function(){ //cmd window execution here for visuals
     console.group("Information");console.warn("This game was orginially created by Matt Trobbiani, @Orann, please buy the orginial game for the best experience: (https://store.steampowered.com/app/365450/Hacknet/)"),console.warn("This project was created by Bartender (https://steamcommunity.com/id/WineBartender/), a complete recreation of hacknet in javascript for support of all broswers and devices; allowing people to play on their phones anywhere."),console.warn("This game is offine page accessible! You can simply download and play anywhere, even without wifi! (https://github.com/BartenderWinery/Hacknet)"); console.groupEnd()
     if(!appdata.get("settings")){
         appdata.set("settings","")}
+    //replace regular text with P tag
     GUI.insertAdjacentHTML("afterbegin","<iframe src=content/web/Login.html'style='height:55%;width:448px;margin-top:135px;margin-left:180px;margin-right:10%></iframe>")}
 commands=[
     ["help [PAGE NUMBER]"],
