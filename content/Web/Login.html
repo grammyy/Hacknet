@@ -28,6 +28,7 @@
     <script>
         if(parent.window.Cookies.get("accounts"))
             document.body.children[3].style.display="flex"
+            document.body.children[3].onclick=function(){parent.window.profiles.load(JSON.parse(parent.window.Cookies.get("accounts"))["login"])}
     </script>
 </body>
 </html>
