@@ -1,8 +1,8 @@
 GUI=document.body.children["GUI"]
 window.onload=function(){ //cmd window execution here for visuals
     app={
-        terminal:GUI.children["cmd"].children[1],
-        cmd:GUI.children["cmd"].children[3],
+        terminal:GUI.children["cmd"].children[1].children[0],
+        cmd:GUI.children["cmd"].children[1].children[0].children[0],
         color:"white",
         buffer:120}
     setInterval(function(){GUI.children[1].children[3].innerText=fps},1)
