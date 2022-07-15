@@ -83,6 +83,7 @@ profiles={
                 Cookies.set(account,"{\"ip\":\""+(Math.floor(Math.random() * 255) + 1)+"."+(Math.floor(Math.random() * 255))+"."+(Math.floor(Math.random() * 255))+"."+(Math.floor(Math.random() * 255))+"\"}")
                 Cookies.set(account+";missions","{}")
                 Cookies.set(account+";logs","{}")}}
+        app["env"]=JSON.parse(Cookies.get(account))["ip"]+"@>"
         API.encode("accounts","login",account)},
     deload:function(){
         GUI.children[0].style.display="flex"
