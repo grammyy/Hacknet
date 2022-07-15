@@ -5,7 +5,7 @@ window.onload=function(){ //cmd window execution here for visuals
     if(!appdata.get("settings")){
         appdata.set("settings","")}
     //replace regular text with P tag
-    GUI.insertAdjacentHTML("afterbegin","<iframe src=content/web/Login.html'style='height:55%;width:448px;margin-top:135px;margin-left:180px;margin-right:10%></iframe>")}
+    GUI.insertAdjacentHTML("afterbegin","<iframe src=content/web/Login.html style=height:55%;width:448px;margin-top:135px;margin-left:180px;margin-right:10%></iframe>")}
 commands=[
     ["help [PAGE NUMBER]"],
     ["scp [filename] [OPTIONAL: destination]"],
