@@ -4,10 +4,12 @@ window.onload=function(){ //cmd window execution here for visuals
         terminal:GUI.children["cmd"].children[1].children[0],
         cmd:GUI.children["cmd"].children[1].children[0].children[0],
         color:"white",
+        error:"SYS.compile([app[\"env\"]+lines[i]+\"\",\"No Command \"+lines[i].split(\" \")[0]+\" - Check Syntaxx\"])",
         buffer:120}
     CMD=new Map([
         ["help",["SYS.compile(['?:\>[]',::,''])",["'-----Test-'","'Command list - Page 1 of 3'"]]],
-        ["cls",["SYS.clear(app['terminal'].parentElement);"]]])
+        ["cls",["SYS.clear(app['terminal'].parentElement);"]],
+        ["",["SYS.compile(['?:\>'])"]]])
     setInterval(function(){GUI.children[1].children[3].innerText=fps},1)
     console.group("Information");console.warn("This game was orginially created by Matt Trobbiani, @Orann, please buy the orginial game for the best experience: (https://store.steampowered.com/app/365450/Hacknet/)"),console.warn("This project was created by Bartender (https://steamcommunity.com/id/WineBartender/), a complete recreation of hacknet in javascript for support of all broswers and devices; allowing people to play on their phones anywhere."),console.warn("This game is offine page accessible! You can simply download and play anywhere, even without wifi! (https://github.com/BartenderWinery/Hacknet)"); console.groupEnd()
     if(!Cookies.get("settings")){
