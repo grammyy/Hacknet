@@ -13,6 +13,6 @@ iframe{height:100%;width:100%;border:none}
 #files{height:69.3%;width:44.2%;display:none;margin-left:20%;margin-top:20.4px}
 #map{width:44.2%;display:none;margin-left:20%;height:26.70%;bottom:0;align-items: center}
 #cmd{height:-webkit-fill-available;display:none;margin-top:20.4px;margin-left:64.5%;width:-webkit-fill-available}
-#terminal p{color:white;font-size:12px;margin:0;height:11px;line-height:16px;letter-spacing:1px;margin-left:5px}
-input{background-color:transparent;border:none;color:rgb(204,204,204);padding:0px;font-family:consolas;width:-webkit-fill-available;height:max-content;font-size:initial;position:absolute;bottom:0;margin:5px;margin-bottom:8px}
+#terminal p{color:white;font-size:12px;margin:0;height:11px;font-family:monospace !important}
+input{background-color:transparent;border:none;color:rgb(204,204,204);padding:0px;font-family:consolas;width:-webkit-fill-available;height:max-content;font-size:initial;bottom:0;margin:0}
 input:focus{outline:none}

@@ -5,40 +5,43 @@ window.onload=function(){ //cmd window execution here for visuals
         cmd:GUI.children["cmd"].children[1].children[0].children[0],
         color:"white",
         buffer:120}
+    CMD=new Map([
+        ["help",["SYS.compile(['?:\>[]',::,''])",["'-----Test-'","'Command list - Page 1 of 3'"]]],
+        ["cls",["SYS.clear(app['terminal'].parentElement);"]]])
     setInterval(function(){GUI.children[1].children[3].innerText=fps},1)
     console.group("Information");console.warn("This game was orginially created by Matt Trobbiani, @Orann, please buy the orginial game for the best experience: (https://store.steampowered.com/app/365450/Hacknet/)"),console.warn("This project was created by Bartender (https://steamcommunity.com/id/WineBartender/), a complete recreation of hacknet in javascript for support of all broswers and devices; allowing people to play on their phones anywhere."),console.warn("This game is offine page accessible! You can simply download and play anywhere, even without wifi! (https://github.com/BartenderWinery/Hacknet)"); console.groupEnd()
     if(!Cookies.get("settings")){
         Cookies.set("settings","")}
     //replace regular text with P tag
     GUI.insertAdjacentHTML("afterbegin","<iframe src=content/web/Login.html style=height:55%;width:448px;margin-top:135px;margin-left:180px;margin-right:10%></iframe>")}
-commands=[
-    ["help [PAGE NUMBER]"],
-    ["scp [filename] [OPTIONAL: destination]"],
-    ["scan"],
-    ["rm [filename (or use * for all files in the folder)]"],
-    ["ps"],
-    ["kill [PID]"],
-    ["cd [foldername]"],
-    ["connect [ip]"],
-    //second page
-    ["probe"],
-    ["exe"],
-    ["disconnect"],
-    ["cat [filename]"],
-    ["openCDTray"],
-    ["closeCDTray"],
-    ["reboot [OPTIONAL: -i]"],
-    ["replaceAll [filename] \"target\" \"replaceAllment\""],
-    ["analyze"],
-    ["solve [FIREWALL SOLUTION]"],
-    //third page
-    ["login"],
-    ["upload [LOCAL FILE PATH/FILENAME]"],
-    ["clear"],
-    ["addNote [NOTE]"],
-    ["append [FILENAME] [DATA]"],
-    ["shell"],
-    ["save!(SJN!*SNL8vAewew57WewJdwl89(*4;;;&!)@&(ak'^&#@J3KH@!*"]]
+//commands=[
+//    ["help [PAGE NUMBER]"],
+//    ["scp [filename] [OPTIONAL: destination]"],
+//    ["scan"],
+//    ["rm [filename (or use * for all files in the folder)]"],
+//    ["ps"],
+//    ["kill [PID]"],
+//    ["cd [foldername]"],
+//    ["connect [ip]"],
+//    //second page
+//    ["probe"],
+//    ["exe"],
+//    ["disconnect"],
+//    ["cat [filename]"],
+//    ["openCDTray"],
+//    ["closeCDTray"],
+//    ["reboot [OPTIONAL: -i]"],
+//    ["replaceAll [filename] \"target\" \"replaceAllment\""],
+//    ["analyze"],
+//    ["solve [FIREWALL SOLUTION]"],
+//    //third page
+//    ["login"],
+//    ["upload [LOCAL FILE PATH/FILENAME]"],
+//    ["clear"],
+//    ["addNote [NOTE]"],
+//    ["append [FILENAME] [DATA]"],
+//    ["shell"],
+//    ["save!(SJN!*SNL8vAewew57WewJdwl89(*4;;;&!)@&(ak'^&#@J3KH@!*"]]
 API={ //scripts for common buttons and such
     encode:function(d,s,r){
         a=JSON.parse(Cookies.get(d))
@@ -84,6 +87,7 @@ profiles={
                 Cookies.set(account+";missions","{}")
                 Cookies.set(account+";logs","{}")}}
         app["env"]=JSON.parse(Cookies.get(account))["ip"]+"@>"
+        app["terminal"].children[0].focus()
         API.encode("accounts","login",account)},
     deload:function(){
         GUI.children[0].style.display="flex"
