@@ -5,10 +5,6 @@ app={
     color:"white",
     error:"SYS.compile([app[\"env\"]+lines[i]+\"\",\"No Command \"+lines[i].split(\" \")[0]+\" - Check Syntax\"])",
     buffer:120}
-CMD=new Map([
-    ["help",["SYS.compile(['?:\>[]',::,''])",["'-----Test-'","'Command list - Page 1 of 3'"]]],
-    ["cls",["SYS.clear(app['terminal'].parentElement)"]],
-    ["",["SYS.compile(['?:\>'])"]]])
 SYS["clear"]=function(e){for(var i=0;i<line;i++)e.children[0].remove();line=1}
 window.onload=function(){ //cmd window execution here for visuals
     setInterval(function(){GUI.children[1].children[3].innerText=fps},1)
@@ -17,6 +13,8 @@ window.onload=function(){ //cmd window execution here for visuals
         Cookies.set("settings","")}
     //replace regular text with P tag
     GUI.insertAdjacentHTML("afterbegin","<iframe src=content/web/Login.html style=height:55%;width:448px;margin-top:135px;margin-left:180px;margin-right:10%></iframe>")}
+addEventListener("resize",(e)=>{
+    CMD.set("help",["SYS.compile(['"+app.env+"[]',::,''])",["'"+"-".repeat(innerWidth/18.8)+"'","'Command list - Page 1 of 3'"]])})
 //commands=[
 //    ["help [PAGE NUMBER]"],
 //    ["scp [filename] [OPTIONAL: destination]"],
@@ -86,14 +84,16 @@ profiles={
             if(Cookies.get("accounts")&&!Cookies.get(account)){Cookies.set("accounts","{\"data\":\""+JSON.parse(Cookies.get("accounts"))["data"]+";"+account+"\",\"login\":\""+account+"\"}")}
             if(!Cookies.get("accounts")){Cookies.set("accounts","{\"data\":\""+account+"\",\"login\":\""+account+"\"}")}
             if(!Cookies.get(account)){
-                Cookies.set(account,"{\"ip\":\""+(Math.floor(Math.random() * 255) + 1)+"."+(Math.floor(Math.random() * 255))+"."+(Math.floor(Math.random() * 255))+"."+(Math.floor(Math.random() * 255))+"\"}")
-                Cookies.set(account+";missions","{}")
-                Cookies.set(account+";logs","{}")}}
+                Cookies.set(account,"{\"ip\":\""+(Math.floor(Math.random() * 255) + 1)+"."+(Math.floor(Math.random() * 255))+"."+(Math.floor(Math.random() * 255))+"."+(Math.floor(Math.random() * 255))+"\"}")}}
         app["env"]=JSON.parse(Cookies.get(account))["ip"]+"@>"
         app["terminal"].children[0].focus({preventScroll:true})
         GUI.children["taskbar"].children["net"].children[1].innerText="Home IP: "+JSON.parse(Cookies.get(account))["ip"]
-        CMD.set("",["SYS.compile(['"+app.env+"'])"])
         app.cmd.parentElement.childNodes[0].textContent=app.env
+        CMD=new Map([
+            ["help",["SYS.compile(['?:\>[]',::,''])",["'"+"-".repeat(innerWidth/18.8)+"'","'Command list - Page 1 of 3'"]]],
+            ["cls",["SYS.clear(app['terminal'].parentElement)"]],
+            ["",["SYS.compile(['"+app.env+"'])"]]])
+        CMD.set("help",["SYS.compile(['"+app.env+"[]',::,''])",["'"+"-".repeat(innerWidth/18.8)+"'","'Command list - Page 1 of 3'"]])
         API.encode("accounts","login",account)},
     deload:function(){
         GUI.children[0].style.display="flex"
@@ -102,12 +102,6 @@ profiles={
         GUI.children[3].style.display="none"
         GUI.children[4].style.display="none"
         GUI.children[5].style.display="none"}}
-//function AddEvent(object, id, func) {
-//    if(object.attachEvent) object.attachEvent("on" + id, function() {func.call(object)})
-//    else if(object.addEventListener) object.addEventListener(id, func, false)}
-//AddEvent(window,'keydown',function(e){
-//    console.log(e.keyCode)//temp code for debugging keycodes
-//    switch(e.keyCode){}})
 const times = [];let fps;
 function refreshLoop(){
     window.requestAnimationFrame(()=>{
