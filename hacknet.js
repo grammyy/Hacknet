@@ -1,15 +1,15 @@
 GUI=document.body.children["GUI"]
+app={
+    terminal:GUI.children["cmd"].children[1].children[0],
+    cmd:GUI.children["cmd"].children[1].children[0].children[0],
+    color:"white",
+    error:"SYS.compile([app[\"env\"]+lines[i]+\"\",\"No Command \"+lines[i].split(\" \")[0]+\" - Check Syntax\"])",
+    buffer:120}
+CMD=new Map([
+    ["help",["SYS.compile(['?:\>[]',::,''])",["'-----Test-'","'Command list - Page 1 of 3'"]]],
+    ["cls",["SYS.clear(app['terminal'].parentElement);"]],
+    ["",["SYS.compile(['?:\>'])"]]])
 window.onload=function(){ //cmd window execution here for visuals
-    app={
-        terminal:GUI.children["cmd"].children[1].children[0],
-        cmd:GUI.children["cmd"].children[1].children[0].children[0],
-        color:"white",
-        error:"SYS.compile([app[\"env\"]+lines[i]+\"\",\"No Command \"+lines[i].split(\" \")[0]+\" - Check Syntaxx\"])",
-        buffer:120}
-    CMD=new Map([
-        ["help",["SYS.compile(['?:\>[]',::,''])",["'-----Test-'","'Command list - Page 1 of 3'"]]],
-        ["cls",["SYS.clear(app['terminal'].parentElement);"]],
-        ["",["SYS.compile(['?:\>'])"]]])
     setInterval(function(){GUI.children[1].children[3].innerText=fps},1)
     console.group("Information");console.warn("This game was orginially created by Matt Trobbiani, @Orann, please buy the orginial game for the best experience: (https://store.steampowered.com/app/365450/Hacknet/)"),console.warn("This project was created by Bartender (https://steamcommunity.com/id/WineBartender/), a complete recreation of hacknet in javascript for support of all broswers and devices; allowing people to play on their phones anywhere."),console.warn("This game is offine page accessible! You can simply download and play anywhere, even without wifi! (https://github.com/BartenderWinery/Hacknet)"); console.groupEnd()
     if(!Cookies.get("settings")){
@@ -89,7 +89,8 @@ profiles={
                 Cookies.set(account+";missions","{}")
                 Cookies.set(account+";logs","{}")}}
         app["env"]=JSON.parse(Cookies.get(account))["ip"]+"@>"
-        app["terminal"].children[0].focus()
+        app["terminal"].children[0].focus({preventScroll:true})
+        GUI.children["taskbar"].children["net"].children[1].innerText="Home IP: "+JSON.parse(Cookies.get(account))["ip"]
         API.encode("accounts","login",account)},
     deload:function(){
         GUI.children[0].style.display="flex"
