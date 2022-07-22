@@ -7,7 +7,7 @@ app={
     buffer:120}
 SYS["clear"]=function(e){for(var i=0;i<line;i++)e.children[0].remove();line=1}
 window.onload=function(){ //cmd window execution here for visuals
-    setInterval(function(){GUI.children[1].children[3].innerText=fps},1)
+    setInterval(function(){GUI.children["taskbar"].children[3].innerText=fps},1)
     console.group("Information");console.warn("This game was orginially created by Matt Trobbiani, @Orann, please buy the orginial game for the best experience: (https://store.steampowered.com/app/365450/Hacknet/)"),console.warn("This project was created by Bartender (https://steamcommunity.com/id/WineBartender/), a complete recreation of hacknet in javascript for support of all broswers and devices; allowing people to play on their phones anywhere."),console.warn("This game is offine page accessible! You can simply download and play anywhere, even without wifi! (https://github.com/BartenderWinery/Hacknet)"); console.groupEnd()
     if(!Cookies.get("settings")){
         Cookies.set("settings","")}
@@ -44,10 +44,6 @@ addEventListener("resize",(e)=>{
 //    ["shell"],
 //    ["save!(SJN!*SNL8vAewew57WewJdwl89(*4;;;&!)@&(ak'^&#@J3KH@!*"]]
 API={ //scripts for common buttons and such
-    encode:function(d,s,r){
-        a=JSON.parse(Cookies.get(d))
-        a[s]=r
-        Cookies.set(d,a)},
     toggle:function(data){
         a=data.classList.toggle("1")
         if(a) data.style.backgroundColor="#00c4ff"; else data.style.backgroundColor="#393156d9"},
@@ -94,7 +90,7 @@ profiles={
             ["clear",["SYS.clear(app['terminal'].parentElement)"]],
             ["",["SYS.compile(['"+app.env+"'])"]]])
         CMD.set("help",["SYS.compile(['"+app.env+"[]',::,''])",["'"+"-".repeat(innerWidth/18.8)+"'","'Command list - Page 1 of 3'"]])
-        API.encode("accounts","login",account)},
+        Cookies.encode("accounts","login",account)},
     deload:function(){
         GUI.children[0].style.display="flex"
         GUI.children[1].style.display="none"
@@ -121,6 +117,10 @@ var Cookies={
     remove:function(k){
         delete _cookies[k]
         this.update()},
+    encode:function(a,b,r){
+        var g=JSON.parse(this.get("app"))
+        g[a][b]=r
+        this.set("app",JSON.stringify(g))},    
     update:function(){
         document.cookie.split(";").forEach(function(c){document.cookie=c.replace(/^ +/,"").replace(/=.*/,"=;expires="+new Date().toUTCString()+";path=/")});
-        for(var i=0;i<keys(_cookies).length;i++){document.cookie+=keys(_cookies)[i]+"="+_cookies[keys(_cookies)[i]]+"; "}}}
+        try{for(var i=0;i<keys(_cookies).length;i++){document.cookie+=keys(_cookies)[i]+"="+_cookies[keys(_cookies)[i]]+"; "}}catch(e){}}}
