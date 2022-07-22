@@ -16,3 +16,4 @@ iframe{height:100%;width:100%;border:none}
 #terminal p{color:white;font-size:12px;margin:0;height:13px;font-family:monospace !important}
 input{background-color:transparent;border:none;color:rgb(204,204,204);padding:0px;font-family:consolas;width:-webkit-fill-available;height:max-content;font-size:initial;bottom:0;margin:0}
 input:focus{outline:none}
+.node{position:absolute;height:40px;width:40px;display:flex;align-items:center;justify-content:center}
