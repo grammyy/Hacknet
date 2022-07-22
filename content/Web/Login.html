@@ -28,8 +28,8 @@
     <script>
         if(parent.window.Cookies.get("accounts"))
             document.body.children[3].style.display="flex"
-            document.body.children[3].insertAdjacentText("beforeend","Continue with account ["+JSON.parse(parent.window.Cookies.get("accounts"))["login"]+"]")
-            document.body.children[3].onclick=function(){parent.window.profiles.load(JSON.parse(parent.window.Cookies.get("accounts"))["login"])}
+            document.body.children[3].insertAdjacentText("beforeend","Continue with account ["+parent.Cookies.parse("accounts")["login"]+"]")
+            document.body.children[3].onclick=function(){parent.window.profiles.load(parent.Cookies.parse("accounts")["login"])}
     </script>
 </body>
 </html>
