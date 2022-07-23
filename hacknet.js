@@ -5,7 +5,7 @@ app={
     color:"white",
     error:"SYS.compile([app[\"env\"]+lines[i]+\"\",\"No Command \"+lines[i].split(\" \")[0]+\" - Check Syntax\"])",
     buffer:120}
-SYS["clear"]=function(e){for(var i=0;i<line;i++)e.children[0].remove();line=1}
+SYS["clear"]=function(e){for(var i=0;i<line;i++)if(e.children[0].id!="cursor")e.children[0].remove()}
 window.onload=function(){ //cmd window execution here for visuals
     setInterval(function(){GUI.children[1].children[3].innerText=fps},1)
     console.group("Information");console.warn("This game was orginially created by Matt Trobbiani, @Orann, please buy the orginial game for the best experience: (https://store.steampowered.com/app/365450/Hacknet/)"),console.warn("This project was created by Bartender (https://steamcommunity.com/id/WineBartender/), a complete recreation of hacknet in javascript for support of all broswers and devices; allowing people to play on their phones anywhere."),console.warn("This game is offine page accessible! You can simply download and play anywhere, even without wifi! (https://github.com/BartenderWinery/Hacknet)"); console.groupEnd()
@@ -14,40 +14,12 @@ window.onload=function(){ //cmd window execution here for visuals
     //replace regular text with P tag
     GUI.insertAdjacentHTML("afterbegin","<iframe src=content/web/Login.html style=height:55%;width:448px;margin-top:135px;margin-left:180px;margin-right:10%></iframe>")}
 addEventListener("resize",(e)=>{
-    CMD.set("help",["SYS.compile(['"+app.env+"[]',::,''])",["'"+"-".repeat(innerWidth/18.8)+"'","'Command list - Page 1 of 3'"]])})
-//commands=[
-//    ["help [PAGE NUMBER]"],
-//    ["scp [filename] [OPTIONAL: destination]"],
-//    ["scan"],
-//    ["rm [filename (or use * for all files in the folder)]"],
-//    ["ps"],
-//    ["kill [PID]"],
-//    ["cd [foldername]"],
-//    ["connect [ip]"],
-//    //second page
-//    ["probe"],
-//    ["exe"],
-//    ["disconnect"],
-//    ["cat [filename]"],
-//    ["openCDTray"],
-//    ["closeCDTray"],
-//    ["reboot [OPTIONAL: -i]"],
-//    ["replaceAll [filename] \"target\" \"replaceAllment\""],
-//    ["analyze"],
-//    ["solve [FIREWALL SOLUTION]"],
-//    //third page
-//    ["login"],
-//    ["upload [LOCAL FILE PATH/FILENAME]"],
-//    ["clear"],
-//    ["addNote [NOTE]"],
-//    ["append [FILENAME] [DATA]"],
-//    ["shell"],
-//    ["save!(SJN!*SNL8vAewew57WewJdwl89(*4;;;&!)@&(ak'^&#@J3KH@!*"]]
+    CMD.set("help",["SYS.compile(['?:\>[]']);SYS.compile([...[\""+"-".repeat(innerWidth/19)+"\"],...eval(\"switch(::){case 2:['yo'];default:['Command list - Page 1 of 3','','help [PAGE NUMBER]','  Displays the specified page of commands.','','scp [filename] [OPTIONAL: destination]','  copies file named [filename] from remote machine to specified local folder (/bin default)','','scan','  Scans for links on the connected machine and adds them to the map','','rm [filename (or use * for all files in folder)]','  Deletes specified file(s)','','ps','  Lists currently running processes and their PIDs','']}\"),...[\""+"-".repeat(innerWidth/19)+"\"]])",["'"+"-".repeat(innerWidth/18.8)+"'","'Command list - Page 1 of 3'"]])})
 API={ //scripts for common buttons and such
-    encode:function(d,s,r){
-        a=JSON.parse(Cookies.get(d))
+    encode:function(d,s,r){ //incorporate into native cookie system later
+        var a=Cookies.parse(d)
         a[s]=r
-        Cookies.set(d,a)},
+        Cookies.set(d,typeof(a)!="object"?a:JSON.stringify(a))},
     toggle:function(data){
         a=data.classList.toggle("1")
         if(a) data.style.backgroundColor="#00c4ff"; else data.style.backgroundColor="#393156d9"},
@@ -59,7 +31,6 @@ API={ //scripts for common buttons and such
 //    }
 render={ //load and deload scenes effectively
     frame:function(data){
-        GUI.style.visibility="hidden"
         if(!document.body.children["SUB"])
             document.body.insertAdjacentHTML("afterbegin","<iframe id='SUB' loading=lazy style='position:absolute' src="+data+"></iframe>")
         else
@@ -69,8 +40,12 @@ render={ //load and deload scenes effectively
         document.body.children["SUB"].style.pointerEvents="none"
         document.body.children["SUB"].src=""
         GUI.style.visibility="visible"}}
-hacknet={node:function(n,i,x,y){
-    GUI.children[4].insertAdjacentHTML("beforeEnd","<div id='"+i+"' name='"+n+"' class='node' style=left:"+x+"%;top:"+y+"%><img src=content/NodeCircle.png style=height:90%></img></div>")}}
+hacknet={
+    node:function(n,i,x,y){
+        GUI.children[4].insertAdjacentHTML("beforeEnd","<div id='"+i+"' name='"+n+"' class='node' style=left:"+x+"%;top:"+y+"%><img src=content/NodeCircle.png style=height:70%></img></div>")
+        GUI.children[4].children[i].children[0].onclick=hacknet.connect(GUI.children[4].children[i])},
+    connect:function(e){
+        GUI.children["taskbar"].children["net"].children[0].innerText="Location: "+(e?e.attributes.name.value+"@"+e.id:"Not Connected")}}
 profiles={
     load:function(account){
         document.body.style=document.body.style+""
@@ -90,10 +65,9 @@ profiles={
         GUI.children["taskbar"].children["net"].children[1].innerText="Home IP: "+Cookies.parse(account)["ip"]
         app.cmd.parentElement.childNodes[0].textContent=app.env
         CMD=new Map([
-            ["help",["SYS.compile(['?:\>[]',::,''])",["'"+"-".repeat(innerWidth/18.8)+"'","'Command list - Page 1 of 3'"]]],
+            ["help",["SYS.compile(['?:\>[]']);SYS.compile([...[\""+"-".repeat(innerWidth/19)+"\"],...eval(\"switch(::){case 2:['yo'];default:['Command list - Page 1 of 3','','help [PAGE NUMBER]','  Displays the specified page of commands.','','scp [filename] [OPTIONAL: destination]','  copies file named [filename] from remote machine to specified local folder (/bin default)','','scan','  Scans for links on the connected machine and adds them to the map','','rm [filename (or use * for all files in folder)]','  Deletes specified file(s)','','ps','  Lists currently running processes and their PIDs','']}\"),...[\""+"-".repeat(innerWidth/19)+"\"]])",["'"+"-".repeat(innerWidth/18.8)+"'","'Command list - Page 1 of 3'"]]],
             ["clear",["SYS.clear(app['terminal'].parentElement)"]],
             ["",["SYS.compile(['"+app.env+"'])"]]])
-        CMD.set("help",["SYS.compile(['"+app.env+"[]',::,''])",["'"+"-".repeat(innerWidth/18.8)+"'","'Command list - Page 1 of 3'"]])
         API.encode("accounts","login",account)},
     deload:function(){
         GUI.children[0].style.display="flex"
