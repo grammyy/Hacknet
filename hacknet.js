@@ -13,8 +13,8 @@ window.onload=function(){ //cmd window execution here for visuals
         Cookies.set("settings","")}
     //replace regular text with P tag
     GUI.insertAdjacentHTML("afterbegin","<iframe src=content/web/Login.html style=height:55%;width:448px;margin-top:135px;margin-left:180px;margin-right:10%></iframe>")}
-addEventListener("resize",(e)=>{
-    CMD.set("help",["SYS.compile(['?:\>[]']);SYS.compile([...[\""+"-".repeat(innerWidth/19)+"\"],...eval(\"switch(::){case 2:['yo'];default:['Command list - Page 1 of 3','','help [PAGE NUMBER]','  Displays the specified page of commands.','','scp [filename] [OPTIONAL: destination]','  copies file named [filename] from remote machine to specified local folder (/bin default)','','scan','  Scans for links on the connected machine and adds them to the map','','rm [filename (or use * for all files in folder)]','  Deletes specified file(s)','','ps','  Lists currently running processes and their PIDs','']}\"),...[\""+"-".repeat(innerWidth/19)+"\"]])",["'"+"-".repeat(innerWidth/18.8)+"'","'Command list - Page 1 of 3'"]])})
+addEventListener("resize",()=>{
+    CMD.set("help",["SYS.compile(['?:>[]']);SYS.compile([...[\""+"-".repeat(innerWidth/19)+"\"],...eval(\"switch(::){case 2:['yo'];default:['Command list - Page 1 of 3','','help [PAGE NUMBER]','  Displays the specified page of commands.','','scp [filename] [OPTIONAL: destination]','  copies file named [filename] from remote machine to specified local folder (/bin default)','','scan','  Scans for links on the connected machine and adds them to the map','','rm [filename (or use * for all files in folder)]','  Deletes specified file(s)','','ps','  Lists currently running processes and their PIDs','']}\"),...[\""+"-".repeat(innerWidth/19)+"\"]])",["'"+"-".repeat(innerWidth/18.8)+"'","'Command list - Page 1 of 3'"]])})
 API={ //scripts for common buttons and such
     encode:function(d,s,r){ //incorporate into native cookie system later
         var a=Cookies.parse(d)
@@ -65,7 +65,7 @@ profiles={
         GUI.children["taskbar"].children["net"].children[1].innerText="Home IP: "+Cookies.parse(account)["ip"]
         app.cmd.parentElement.childNodes[0].textContent=app.env
         CMD=new Map([
-            ["help",["SYS.compile(['?:\>[]']);SYS.compile([...[\""+"-".repeat(innerWidth/19)+"\"],...eval(\"switch(::){case 2:['yo'];default:['Command list - Page 1 of 3','','help [PAGE NUMBER]','  Displays the specified page of commands.','','scp [filename] [OPTIONAL: destination]','  copies file named [filename] from remote machine to specified local folder (/bin default)','','scan','  Scans for links on the connected machine and adds them to the map','','rm [filename (or use * for all files in folder)]','  Deletes specified file(s)','','ps','  Lists currently running processes and their PIDs','']}\"),...[\""+"-".repeat(innerWidth/19)+"\"]])",["'"+"-".repeat(innerWidth/18.8)+"'","'Command list - Page 1 of 3'"]]],
+            ["help",["SYS.compile(['?:>[]']);SYS.compile([...[\""+"-".repeat(innerWidth/19)+"\"],...eval(\"switch(::){case 2:['yo'];default:['Command list - Page 1 of 3','','help [PAGE NUMBER]','  Displays the specified page of commands.','','scp [filename] [OPTIONAL: destination]','  copies file named [filename] from remote machine to specified local folder (/bin default)','','scan','  Scans for links on the connected machine and adds them to the map','','rm [filename (or use * for all files in folder)]','  Deletes specified file(s)','','ps','  Lists currently running processes and their PIDs','']}\"),...[\""+"-".repeat(innerWidth/19)+"\"]])",["'"+"-".repeat(innerWidth/18.8)+"'","'Command list - Page 1 of 3'"]]],
             ["clear",["SYS.clear(app['terminal'].parentElement)"]],
             ["",["SYS.compile(['"+app.env+"'])"]]])
         API.encode("accounts","login",account)},
